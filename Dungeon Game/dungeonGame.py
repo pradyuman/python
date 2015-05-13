@@ -91,7 +91,7 @@ while True:
 	if move in moves:
 		player = movePlayer(player, move)
 	else:
-		print("ERROR: Your move is invalid. Wals are hard, don't walk into them!")
+		print("ERROR: Your move is invalid. Walls are hard, don't walk into them!")
 		continue
 	
 	if player == door:
