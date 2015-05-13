@@ -1,2 +1,5 @@
 # python
-My python playground
+My python playground.
+
+Currently contains:
+* Dungeon Game
