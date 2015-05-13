@@ -20,8 +20,19 @@ def getLocations():
 	
 def movePlayer(player, move):
 	#player is a tuple of y,x coordinates
+	y, x = player
 	
-	return player
+	if move == 'LEFT':
+		x -= 1
+	elif move == 'RIGHT':
+		x += 1
+	elif move == 'UP':
+		y -= 1
+	elif move == 'DOWN':
+		y += 1
+	
+	#return player	
+	return y, x
 
 #get moves that the player can go to
 #removes the moves in which the player will go out of the dungeon boundaries
@@ -47,7 +58,7 @@ monster, door, player = getLocations()
 while True:
 	moves = getMoves(player)
 	
-	print("You're currently in room {}".format(player))
+	print("You're currently in location {}".format(player))
 	print("You can move {}".format(moves))
 	print("Enter QUIT to exit the game.")
 	
