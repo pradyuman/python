@@ -48,17 +48,37 @@ def getMoves(player):
 	if player[0] == 3:
 		moves.remove('DOWN')
 	return moves
+
+#visual map of the dungeon
+def drawMap(player):
+	tile = '|{}'
+	for i, cell in enumerate(CELLS):
+		#this is the right most column (needs different formatting)
+		if i in [3, 7, 11, 15]:
+			#if the cell is the player, print an 'X' to mark the player
+			if cell == player:
+				print(tile.format('X|'))
+			else:
+				print(tile.format('_|'))
+		#all the other columns
+		else:
+			#if the cell is the player, print an 'X' to mark the player
+			if cell == player:
+				print(tile.format('X'), end = '')
+			else:
+				print(tile.format('_'), end = '')
 		
 #main
-print("Welcome to the dungeon!")
-
 #set random locations for the game entities
 monster, door, player = getLocations()
+
+print("Welcome to the dungeon!")
 
 while True:
 	moves = getMoves(player)
 	
 	print("You're currently in location {}".format(player))
+	drawMap(player)
 	print("You can move {}".format(moves))
 	print("Enter QUIT to exit the game.")
 	
