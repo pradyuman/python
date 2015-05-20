@@ -1,9 +1,20 @@
+import random
 from combat import Combat
 
 #a character is a combat entity
 class Character(Combat):
 	XP = 0 #experience
 	HP = 10 # hit points
+	
+	#overwriting Combat attributes/methods to give character the upper hand against monsters
+	attack_limit = 10
+	def attack(self):
+		roll = random.randint(1, self.attack_limit)
+		if self.weapon == 'sword':
+			roll += 1
+		elif self.weapon == 'axe':
+			roll += 2
+		return roll > 4
 	
 	def __init__(self, **kwargs):
 		#setting base attributes
