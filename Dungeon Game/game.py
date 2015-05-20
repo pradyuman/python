@@ -11,6 +11,9 @@ class Game:
 			Dragon()
 		]
 		self.monster = self.getNextMonster()
+		
+	def hit(self, player):
+		player.hitpoints -=1
 	
 	#get the next monster on the monster list
 	def getNextMonster(self):
@@ -20,7 +23,17 @@ class Game:
 			return None
 	
 	def monsterTurn(self):
-	
+		if self.monster.attack():
+			print("{} is attacking!").format(self.monster))
+			
+			if self.player.dodge():
+				print("You dodge {}'s attack! Current HP: {}".format(self.monster, self.player.hitpoints))
+			else:
+				hit(self.player)
+				print("You were hit! Remaining HP: {}".format(self.player.hitpoints))
+		else:
+			print("The {} is tired. The monster cannot attack this turn.".format(self.monster))
+					
 	def playerTurn(self):
 		
 	def cleanup(self):
