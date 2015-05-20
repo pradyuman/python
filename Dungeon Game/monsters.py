@@ -51,5 +51,5 @@ class Dragon(Monster):
 	maxHP = 10
 	minXP = 6
 	maxXP = 10
-	sound = 'raaaaaaaar'
+	sound = 'rooooooooaaaaaaaar'
 	
