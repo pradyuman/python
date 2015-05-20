@@ -5,10 +5,15 @@ COLORS = ['yellow', 'red', 'blue', 'green']
 
 #Monster class
 class Monster:
+	#Hit Points
 	minHP = 1
 	maxHP = 1
+	
+	#Experience Points
 	minXP = 1
 	maxXP = 1
+	
+	#Other attributes
 	weapon = 'sword'
 	sound = 'roar'
 	
@@ -27,3 +32,24 @@ class Monster:
 		return self.sound.upper()
 		
 #Goblin subclass
+class Goblin(Monster):
+	maxHP = 3
+	maxXP = 2
+	sound = 'squeak'
+
+#Troll subclass
+class Troll(Monster):
+	minHP = 3
+	maxHP = 5
+	minXP = 2
+	maxXP = 6
+	sound = 'growl'
+	
+#Dragon subclass
+class Dragon(Monster):
+	minHP = 5
+	maxHP = 10
+	minXP = 6
+	maxXP = 10
+	sound = 'raaaaaaaar'
+	
