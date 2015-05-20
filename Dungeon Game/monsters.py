@@ -1,10 +1,11 @@
 import random
+from combat import Combat
 
 #Possible colors for monsters
 COLORS = ['yellow', 'red', 'blue', 'green']
 
-#Monster class
-class Monster:
+#a monster is a combat entity
+class Monster(Combat):
 	#Hit Points
 	minHP = 1
 	maxHP = 1
