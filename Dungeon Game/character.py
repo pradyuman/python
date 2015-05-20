@@ -4,7 +4,7 @@ from combat import Combat
 #a character is a combat entity
 class Character(Combat):
 	XP = 0 #experience
-	HP = 10 # hit points
+	baseHP = 10 # hit points
 	
 	#overwriting Combat attributes/methods to give character the upper hand against monsters
 	attack_limit = 10
@@ -14,15 +14,27 @@ class Character(Combat):
 			roll += 1
 		elif self.weapon == 'axe':
 			roll += 2
+		#now the player is more likely to attack (max is 10 so the attack probability is higher)
 		return roll > 4
 	
 	def __init__(self, **kwargs):
 		#setting base attributes
 		self.name = input("Name: ")
 		self.weapon = self.getWeapon()
+		self.HP = self.baseHP
 		
 		for key, value in kwargs.items():
 			setattr(self, key, value)
+		
+		def __str__(self):
+			return '{}, HP: {}, XP: {}'.format(self.name, self.HP, self.XP)
+		
+		def rest(self):
+			if self.HP < self.baseHP:
+				self.HP += 1
+		
+		def levelUp(self):
+			return self.XP >= 5
 	
 	#ask player for weapon choice
 	def getWeapon(self):
