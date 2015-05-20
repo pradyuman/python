@@ -21,13 +21,20 @@ class Monster(Combat):
 	#overwriting initialize method
 	def __init__(self, **kwargs):
 		self.HP = random.randint(self.minHP, self.maxHP)
-		self.experience = random.randint(self.minXP, self.maxXP)
+		self.XP = random.randint(self.minXP, self.maxXP)
 		self.color = random.choice(COLORS)
 		
 		#in the case that keyword arguments are given
 		for key, value in kwargs.items():
 			setattr(self, key, value)
 	
+	#formatting string output
+	def __str__(self):
+		return "{} {} [HP: {}, XP: {}]".format(self.color.title(),
+											  self.__class__.__name__,
+											  self.HP,
+											  self.XP)
+			
 	#defining a battle cry for the monster
 	def battlecry(self):
 		return self.sound.upper()

@@ -25,16 +25,17 @@ class Character(Combat):
 		
 		for key, value in kwargs.items():
 			setattr(self, key, value)
+	
+	#formatting string output
+	def __str__(self):
+		return '{}, HP: {}, XP: {}'.format(self.name, self.HP, self.XP)
 		
-		def __str__(self):
-			return '{}, HP: {}, XP: {}'.format(self.name, self.HP, self.XP)
+	def rest(self):
+		if self.HP < self.baseHP:
+			self.HP += 1
 		
-		def rest(self):
-			if self.HP < self.baseHP:
-				self.HP += 1
-		
-		def levelUp(self):
-			return self.XP >= 5
+	def levelUp(self):
+		return self.XP >= 5
 	
 	#ask player for weapon choice
 	def getWeapon(self):

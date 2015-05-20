@@ -14,7 +14,10 @@ class Game:
 		self.monster = self.getNextMonster()
 		
 	def hit(self, entity, strength):
-		entity.HP -= strength
+		if entity == 'player':
+			self.player.HP -= strength
+		elif entity == 'monster':
+			self.monster.HP -=strength
 	
 	#get the next monster on the monster list
 	def getNextMonster(self):
@@ -29,16 +32,16 @@ class Game:
 			print("{} is attacking!".format(self.monster))
 			
 			if self.player.dodge():
-				print("You dodge {}'s attack! Current HP: {}".format(self.monster, self.player.HP))
+				print("You dodged {}'s attack!".format(self.monster))
 			else:
-				hit(self.player, 1)
-				print("You were hit! Remaining HP: {}".format(self.player.HP))
+				self.hit('player', 1)
+				print("You were hit!")
 		else:
 			print("The {} is tired. The monster cannot attack this turn.".format(self.monster))
 	
 	#player's turn				
 	def playerTurn(self):
-		playerMove = input("[A]ttack, [R]est, [Q]uit?").upper()
+		playerMove = input("[A]ttack, [R]est, [Q]uit?: ").upper()
 		
 		#if player is attacking
 		if playerMove == 'A':
@@ -49,9 +52,9 @@ class Game:
 					print("{} dodged your attack!".format(self.monster))
 				else:
 					if self.player.levelUp():
-						hit(self.monster, 2)
+						self.hit('monster', 2)
 					else:
-						hit(self.monster, 1)
+						self.hit('monster', 1)
 					
 					print("You hit {} with your {}!".format(self.monster, self.player.weapon))
 			else:
