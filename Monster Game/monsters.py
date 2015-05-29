@@ -2,7 +2,7 @@ import random
 from combat import Combat
 
 #Possible colors for monsters
-COLORS = ['yellow', 'red', 'blue', 'green']
+COLORS = ['yellow', 'red', 'blue', 'green', 'purple']
 
 #a monster is a combat entity
 class Monster(Combat):
