@@ -16,4 +16,4 @@ class Quiz:
 	
 	def ask(self, questions):
 		
-	def summary(def):
+	def summary(self):
