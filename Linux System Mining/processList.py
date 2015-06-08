@@ -25,7 +25,7 @@ class Process(object):
 def process_list():
 	'''Return a list of active processes (Process objects)'''
 	proc_list = []
-	psaux = Popen(['ps', 'aux'], stdout=PIPE)
+	psaux = Popen(['ps', 'aux'], stdout=PIPE, universal_newlines=True)
 	#Discard the ps aux header
 	psaux.stdout.readline()
 	for line in psaux.stdout:
