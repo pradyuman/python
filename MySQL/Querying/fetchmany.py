@@ -1,8 +1,19 @@
 from mysql.connector import MySQLConnection, Error
 from mysql_config import read_db_config
 
-def mysql_fetchall():
-	'''Query a MySQL database using fetchall()'''
+def gen_row(cursor, size=10):
+	'''Gets a block of rows from the database specified by [size]'''
+	while True:
+		rows = cursor.fetchmany(size)
+
+		if not rows:
+			break
+		
+		for row in rows:
+			yield row
+
+def mysql_fetchmany():
+	'''Query a MySQL database using fetchmany()'''
 	try:
 		db_config = read_db_config()
 
@@ -15,12 +26,8 @@ def mysql_fetchall():
 		#Selects all rows from the space table
 		cursor.execute("SELECT * from space")
 
-		#selects all the rows  in the cursor result set
-		rows = cursor.fetchall()
-		print('Number of rows: %d' % cursor.rowcount)
-		
-		#prints the rows out
-		for row in rows:
+		#prints 10 rows out
+		for row in gen_row(cursor, 10):
 			print(row)
 
 	except Error as error:
@@ -32,4 +39,4 @@ def mysql_fetchall():
 		print('Connection closed.')
 
 if __name__ == '__main__':
-	mysql_fetchall()
+	mysql_fetchmany()
