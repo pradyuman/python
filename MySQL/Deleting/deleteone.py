@@ -1,12 +1,9 @@
 from mysql.connector import MySQLConnection, Error
 from mysql_config import read_db_config
 
-def update_one(star_id, star_location):
-	'''Update a field in a MySQL database'''
-	query = ("UPDATE space" 
-			 "SET star_name = %s"
-			 "WHERE id = %s")
-	args = (star_name, star_id)
+def delete_one(star_id):
+	'''Delete one row of a MySQL database'''
+	query = "DELETE FROM space WHERE id = %s"
 
 	try:
 		db_config = read_db_config()
@@ -17,8 +14,8 @@ def update_one(star_id, star_location):
 		#Creating a new MySQLCursor object from the MySQLConnection object
 		cursor = conn.cursor()
 
-		#Updates a field in the database
-		cursor.execute(query, args)
+		#Deletes one row in the database
+		cursor.execute(query, star_id)
 
 		conn.commit()
 
@@ -31,4 +28,4 @@ def update_one(star_id, star_location):
 		print('Connection closed.')
 
 if __name__ == '__main__':
-	update_one(2, 'Alpha Centauri AB')
+	delete_one(3)
