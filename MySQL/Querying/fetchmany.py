@@ -26,7 +26,7 @@ def mysql_fetchmany():
 		#Selects all rows from the space table
 		cursor.execute("SELECT * from space")
 
-		#prints 10 rows out
+		#prints the rows out
 		for row in gen_row(cursor, 10):
 			print(row)
 
