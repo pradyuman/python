@@ -3,8 +3,8 @@ from mysql_config import read_db_config
 
 def insert_one(star_name, star_location):
 	'''Insert one row into a MySQL database'''
-	query = "INSERT INTO space(star_name, star_location)" \ 
-			"VALUES(%s, %s)"
+	query = ("INSERT INTO space(star_name, star_location)" 
+			 "VALUES(%s, %s)")
 	args = (star_name, star_location)
 
 	try:

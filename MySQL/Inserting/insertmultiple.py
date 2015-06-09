@@ -3,8 +3,8 @@ from mysql_config import read_db_config
 
 def insert_many(star_name, star_location):
 	'''Insert multiple rows into a MySQL database'''
-	query = "INSERT INTO space(star_name, star_location)" \ 
-			"VALUES(%s, %s)"
+	query = ("INSERT INTO space(star_name, star_location)" 
+			 "VALUES(%s, %s)")
 	args = (star_name, star_location)
 
 	try:
