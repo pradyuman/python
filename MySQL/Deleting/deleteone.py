@@ -15,7 +15,7 @@ def delete_one(star_id):
 		cursor = conn.cursor()
 
 		#Deletes one row in the database
-		cursor.execute(query, star_id)
+		cursor.execute(query, (star_id,))
 
 		conn.commit()
 
