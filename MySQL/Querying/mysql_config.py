@@ -6,7 +6,7 @@ def read_db_config(filename='config.ini', section='mysql'):
 	parameters
 	'''
 
-	#create parser and read ini configuartion file
+	#create parser and read ini configuration file
 	parser = ConfigParser()
 	parser.read(filename)
 
