@@ -3,10 +3,22 @@ from queue import Queue
 import time
 
 print_lock = threading.Lock()
+def example(worker):
+    time.sleep(0.5)
 
+    with print_lock:
+        print(threading.current_thread().name, worker)
+
+def threader():
+    while True:
+        worker = q.get()
+        example(worker)
+        q.task_done()
+
+#Job assignment
 q = Queue()
 
-for x in range(10):
+for x in range(20):
     #Creating a background threader
     t = threading.Thread(target=threader)
     t.daemon = True
@@ -15,7 +27,7 @@ for x in range(10):
 
 start = time.time()
 
-for worker in range(20):
+for worker in range(100):
     q.put(worker)
 
 q.join()
