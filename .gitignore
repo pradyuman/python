@@ -10,3 +10,7 @@ Thumbs.db
 a.out
 
 *.dSYM/
+
+#Python
+*.pyc
+__pycache__
