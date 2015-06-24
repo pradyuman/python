@@ -1,4 +1,5 @@
-##9.343469 seconds
+#Multi core - 9.343469 seconds
+#Single core - 7.848209 seconds
 from time import process_time
 from threading import Thread
 

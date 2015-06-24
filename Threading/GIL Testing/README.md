@@ -5,7 +5,12 @@ Testing the Python Global Intepreter Lock (GIL).
 Fastest -> Slowest:
 1. No Threading
 2. Threading on Single Core
-3. Threading on Multiple Cores
+3. Threading on Multiple Core
+
+These tests were run on a 15 inch Retina Macbook Pro (mid-2012) with the following specifications:
+
+* Processor: 2.6 GHz Intel Core i7
+* Memory: 8 GB 1600 MHz DDR3
 
 *A general overview of why this happens:*
 
