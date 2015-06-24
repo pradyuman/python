@@ -8,4 +8,4 @@ Currently contains:
 * Math Quiz Game
 * Monster Game
 * Miscellaneous MySQL programs
-* Miscellaneous Threading programs
+* Miscellaneous threading programs
