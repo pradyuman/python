@@ -11,7 +11,7 @@ class Quiz:
 	answers = []
 
 	def __init__(self):
-		question_types = (Add, Subtract, Multiply, Divide)
+		question_types = (Add, Subtract, Multiply)
 		
 		for _ in range(10):
 			num1 = random.randint(1,10)
