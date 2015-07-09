@@ -8,5 +8,8 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 
+@app.route('/save', methods=['POST'])
+def save():
+	
 
 app.run(debug=True, host='0.0.0.0', port=8000)
