@@ -12,7 +12,7 @@
         <div class="grid-70">
 			<div class="colors">
 				{% for color in options['colors'] %}
-					<input type="radio" id="{{ color }}" name="colors" value=" {{ color }}"
+					<input type="radio" id="{{ color }}" name="colors" value="{{ color }}"
 					       {% if saves.get('colors') == color %}checked{% endif %}>
 					<label for="{{ color }}"></label>
 				{% endfor %}
