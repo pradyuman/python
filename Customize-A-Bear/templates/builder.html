@@ -20,7 +20,10 @@
             </div>
         </div>
 		<div id="bear" class="grid-100 bg-{{ saves.get('colors') }}">
-            <div class="bear-body"><img src="/static/img/bear_body.svg" /></div>
+			<div class="bear-body"><img src="/static/img/bear_body.svg" /></div>
+			{% if saves.get('footwear') %}
+			<div class="footwear"><img src="/static/img/bear_items_footwear-{{ saves['footwear'] }}.svg"></div>
+			{% endif %}
             <div class="head"><img src="/static/img/bear_face.svg" /></div>
             <div class="nose"><img src="/static/img/bear_nose.svg" /></div>
         </div>
