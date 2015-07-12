@@ -8,6 +8,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <div class="wrap no-bottom messages bg-{{ saves.get('colors', 'purple') }}">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
         {% block content %}{% endblock %}
     </body>
 </html>
