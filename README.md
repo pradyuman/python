@@ -4,7 +4,8 @@ My python playground.
 Currently contains:
 * Date-> Wikipedia
 * Dungeon Game
-* Linux System Mining
+* Linux System Mining scripts
 * Math Quiz Game
 * Monster Game
-* MySQL
+* Miscellaneous MySQL programs
+* Miscellaneous threading programs
