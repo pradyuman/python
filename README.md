@@ -2,6 +2,7 @@
 My python playground.
 
 Currently contains:
+* Customize-A-Bear Website
 * Date-> Wikipedia
 * Dungeon Game
 * Linux System Mining scripts
