@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from collections import OrderedDict
 import datetime
+import sys
 
 from peewee import *
 
@@ -23,7 +24,7 @@ def menu_loop():
 	choice = None
 
 	while choice != 'q':
-		print("Enter 'q' to quit.")
+		print("\nJOURNAL MENU | Enter 'q' to quit.")
 		
 		#print menu
 		for key, value in menu.items():
@@ -37,7 +38,14 @@ def menu_loop():
 			menu[choice]()
 
 def add_entry():
-	'''Add an entryto the database'''
+	'''Add an entry to the database'''
+	print("Write your journal entry. Press ctrl+d when finished.")
+	data = sys.stdin.read().strip()
+
+	if data:
+		if input('Save entry? [Y/n] ').lower() != 'n':
+			Entry.create(content=data)
+			print("Saved successfully!")
 
 def view_entries():
 	'''View all entries currently in the database'''
