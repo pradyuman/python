@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from collections import OrderedDict
 import datetime
+from time import sleep
+import os
 import sys
 
 from peewee import *
@@ -21,12 +23,16 @@ def initialize():
 	db.create_tables([Entry], safe=True)
 
 
+def clear():
+	os.system('cls' if os.name == 'nt' else 'clear')
+
 def menu_loop():
 	'''Show the menu'''
 	choice = None
 
 	while choice != 'q':
-		print("\nJOURNAL MENU")
+		clear()
+		print("JOURNAL MENU")
 		
 		#print menu
 		for key, value in menu.items():
@@ -38,6 +44,7 @@ def menu_loop():
 		
 		#run the function
 		if choice in menu:
+			clear()
 			menu[choice]()
 
 
@@ -50,6 +57,7 @@ def add_entry():
 		if input("Save entry? [Y/n] ").lower() != 'n':
 			Entry.create(content=data)
 			print("Saved successfully!")
+			sleep(1)
 
 
 def view_entries(search_query=None):
@@ -60,11 +68,11 @@ def view_entries(search_query=None):
 
 	for entry in entries:
 		timestamp = entry.timestamp.strftime('%A %d %B %Y | %I:%M %p')
-		print()
+		clear()
 		print(timestamp)
 		print('='*len(timestamp))
 		print(entry.content)
-		print()
+		print('\n\n'+'='*len(timestamp))
 		print("n) Next Entry")
 		print("d) Delete Entry")
 		print("r) Return to main menu")
@@ -86,6 +94,7 @@ def delete_entry(entry):
 	if input("Are you sure? [y/N] ").lower() == 'y':
 		entry.delete_instance()
 		print("Entry deleted.")
+		sleep(1)
 
 #OrderedDict of journal functions
 menu = OrderedDict([
